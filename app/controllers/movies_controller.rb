@@ -21,6 +21,8 @@ class MoviesController < ApplicationController
       @selected = session[:ratings].keys
     else
       @selected = @all_ratings
+      
+      
     end
     
     if (params[:sort])
