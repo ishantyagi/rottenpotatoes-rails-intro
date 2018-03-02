@@ -7,7 +7,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @all_ratings = Movie.order(:rating).select(:rating).map(&:rating).uniq
+    @all_ratings =  Movie.order(:rating).select(:rating).map(&:rating).uniq
     @checked_ratings = check
     @checked_ratings.each do |rating|
       params[rating] = true
@@ -27,7 +27,9 @@ class MoviesController < ApplicationController
   def create
     @movie = Movie.create!(params[:movie])
     flash[:notice] = "#{@movie.title} was successfully created."
+    
     redirect_to movies_path
+    
     
   end
 
